@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerMovementData" load_steps=2 format=3 uid="uid://c75alpby6mwrb"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovementData.cs" id="1_jnadm"]
+
+[resource]
+script = ExtResource("1_jnadm")
+Speed = 10.0
+Gravity = 40.0
+Acceleration = 100.0
+Friction = 1000.0
+Jump = 100.0
+AirSpeed = 10.0
+AirAcceleration = 100.0
+AirFriction = 1000.0
