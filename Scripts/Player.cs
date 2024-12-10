@@ -46,7 +46,7 @@ public partial class Player : CharacterBody2D
             }
         }
 
-        Velocity = this.velocity;
+        Velocity = velocity;
         MoveAndSlide();
         this.velocity = Velocity;
 
