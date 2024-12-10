@@ -48,13 +48,13 @@ public partial class Player : CharacterBody2D
 
         Velocity = velocity;
         MoveAndSlide();
-        this.velocity = Velocity;
+        velocity = Velocity;
 
         UpdateAnimation(inputAxis);
     }
 
     private void ApplyGravity(double delta){
-        this.velocity -= UpDirection * MovementData.Gravity * (float)delta;
+        velocity -= UpDirection * MovementData.Gravity * (float)delta;
     }
 
     private void Acceleration(double delta, float axis, float speed, float acceleration){
