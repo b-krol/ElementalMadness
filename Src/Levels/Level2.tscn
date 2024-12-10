@@ -15,5 +15,5 @@ tile_set = ExtResource("2_wkfjg")
 position = Vector2(0, -29)
 
 [connection signal="body_entered" from="TileMapLayer/Heart" to="TileMapLayer/Heart" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@216604" to="TileMapLayer/@Area2D@216604" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@216605" to="TileMapLayer/@Area2D@216605" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@19391" to="TileMapLayer/@Area2D@19391" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@19392" to="TileMapLayer/@Area2D@19392" method="OnBodyEntered"]
