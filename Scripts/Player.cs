@@ -12,9 +12,21 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         startingPosition = GlobalPosition;
-        Events.Instance.PlayerCollectedFire += () => CurrentElement = Element.fire;
-        Events.Instance.PlayerCollectedAir += () => CurrentElement = Element.air;
-        Events.Instance.PlayerCollectedWater += () => CurrentElement = Element.water;
+        Events.Instance.PlayerCollectedFire += () => 
+        {
+            CurrentElement = Element.fire;
+            CollisionMask = 1;
+        };
+        Events.Instance.PlayerCollectedAir += () => 
+        {
+            CurrentElement = Element.air;
+            CollisionMask = 65;
+        };
+        Events.Instance.PlayerCollectedWater += () => 
+        {
+            CurrentElement = Element.water;
+            CollisionMask = 1;
+        };
     }
 
     public override void _Process(double delta)

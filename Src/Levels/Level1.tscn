@@ -1,9 +1,48 @@
-[gd_scene load_steps=5 format=4 uid="uid://bgb78asc3xwny"]
+[gd_scene load_steps=9 format=4 uid="uid://bgb78asc3xwny"]
 
 [ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_yhcw3"]
 [ext_resource type="PackedScene" uid="uid://c4sus6mm2nm7d" path="res://Src/Levels/Level2.tscn" id="2_i5y2l"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="3_bpo3i"]
+[ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="5_adrdt"]
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="5_tb3u2"]
+
+[sub_resource type="Animation" id="Animation_pgd43"]
+resource_name = "move"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(66, 14), Vector2(66, -63)]
+}
+
+[sub_resource type="Animation" id="Animation_olhlb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(66, 14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpyre"]
+_data = {
+"RESET": SubResource("Animation_olhlb"),
+"move": SubResource("Animation_pgd43")
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_yhcw3")
@@ -15,3 +54,12 @@ tile_set = ExtResource("3_bpo3i")
 
 [node name="Player" parent="." instance=ExtResource("5_tb3u2")]
 position = Vector2(0, -29)
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("5_adrdt")]
+position = Vector2(66, 14)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_xpyre")
+}
+autoplay = "move"
