@@ -14,6 +14,10 @@ public partial class StartMenu : CenterContainer
         GetTree().ChangeSceneToPacked(startLevel);
     }
 
+    private void OnOptionsButtonPressed(){
+        //GetTree().ChangeSceneToPacked(startLevel);
+    }
+
     private void OnQuitButtonPressed(){
         GetTree().Quit();
     }

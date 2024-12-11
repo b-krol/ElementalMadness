@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://dcxn4jftgcdpo"]
+
+[ext_resource type="Script" path="res://Src/Menus/LevelSelection.cs" id="1_0xfkn"]
+[ext_resource type="Texture2D" uid="uid://dmr128mrr17ay" path="res://Assets/Gotowe/LevelsButtons/Lvl1.png" id="2_4lesf"]
+[ext_resource type="Texture2D" uid="uid://ck3c16uo202bo" path="res://Assets/Gotowe/Napis_levele.png" id="2_rm3pk"]
+[ext_resource type="Texture2D" uid="uid://2xyawpv1h17a" path="res://Assets/Gotowe/LevelsButtons/Lvl2.png" id="4_a8si5"]
+[ext_resource type="Texture2D" uid="uid://byptbho0sovbj" path="res://Assets/Gotowe/LevelsButtons/Lvl3.png" id="5_nc5j7"]
+[ext_resource type="Texture2D" uid="uid://ce0gehqw2y2cd" path="res://Assets/Gotowe/LevelsButtons/Lvl4.png" id="6_qjm44"]
+[ext_resource type="Texture2D" uid="uid://c8y3tpr3y8yvp" path="res://Assets/Gotowe/LevelsButtons/Lvl5.png" id="7_ev7tr"]
+[ext_resource type="Texture2D" uid="uid://cyeot6trrddhp" path="res://Assets/Gotowe/LevelsButtons/Lvl6.png" id="8_lhk8l"]
+[ext_resource type="Texture2D" uid="uid://j8c503tgwrh" path="res://Assets/Gotowe/LevelsButtons/Lvl7.png" id="9_3ci21"]
+[ext_resource type="Texture2D" uid="uid://djvtju3fsw4yu" path="res://Assets/Gotowe/LevelsButtons/Lvl8.png" id="10_olonm"]
+[ext_resource type="Texture2D" uid="uid://dmtpygbd42g38" path="res://Assets/Gotowe/LevelsButtons/Lvl9.png" id="11_umy6r"]
+[ext_resource type="Texture2D" uid="uid://b1rsmhn1l1qa8" path="res://Assets/Gotowe/LevelsButtons/Lvl10.png" id="12_51j8r"]
+
+[node name="LevelSelection" type="CenterContainer"]
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("1_0xfkn")
+
+[node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleRow" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Rows/TitleRow"]
+layout_mode = 2
+texture = ExtResource("2_rm3pk")
+
+[node name="SelectionRow1" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level1Button" type="TextureButton" parent="Rows/SelectionRow1"]
+layout_mode = 2
+texture_normal = ExtResource("2_4lesf")
+
+[node name="Level2Button" type="TextureButton" parent="Rows/SelectionRow1"]
+layout_mode = 2
+texture_normal = ExtResource("4_a8si5")
+
+[node name="Level3Button" type="TextureButton" parent="Rows/SelectionRow1"]
+layout_mode = 2
+texture_normal = ExtResource("5_nc5j7")
+
+[node name="Level4Button" type="TextureButton" parent="Rows/SelectionRow1"]
+layout_mode = 2
+texture_normal = ExtResource("6_qjm44")
+
+[node name="Level5Button" type="TextureButton" parent="Rows/SelectionRow1"]
+layout_mode = 2
+texture_normal = ExtResource("7_ev7tr")
+
+[node name="SelectionRow2" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level6Button" type="TextureButton" parent="Rows/SelectionRow2"]
+layout_mode = 2
+texture_normal = ExtResource("8_lhk8l")
+
+[node name="Level7Button" type="TextureButton" parent="Rows/SelectionRow2"]
+layout_mode = 2
+texture_normal = ExtResource("9_3ci21")
+
+[node name="Level8Button" type="TextureButton" parent="Rows/SelectionRow2"]
+layout_mode = 2
+texture_normal = ExtResource("10_olonm")
+
+[node name="Level9Button" type="TextureButton" parent="Rows/SelectionRow2"]
+layout_mode = 2
+texture_normal = ExtResource("11_umy6r")
+
+[node name="Level10Button" type="TextureButton" parent="Rows/SelectionRow2"]
+layout_mode = 2
+texture_normal = ExtResource("12_51j8r")
+
+[connection signal="pressed" from="Rows/SelectionRow1/Level1Button" to="." method="StartLevel_1"]
+[connection signal="pressed" from="Rows/SelectionRow1/Level2Button" to="." method="StartLevel_2"]
+[connection signal="pressed" from="Rows/SelectionRow1/Level3Button" to="." method="StartLevel_3"]
+[connection signal="pressed" from="Rows/SelectionRow1/Level4Button" to="." method="StartLevel_4"]
+[connection signal="pressed" from="Rows/SelectionRow1/Level5Button" to="." method="StartLevel_5"]
+[connection signal="pressed" from="Rows/SelectionRow2/Level6Button" to="." method="StartLevel_6"]
+[connection signal="pressed" from="Rows/SelectionRow2/Level7Button" to="." method="StartLevel_7"]
+[connection signal="pressed" from="Rows/SelectionRow2/Level8Button" to="." method="StartLevel_8"]
+[connection signal="pressed" from="Rows/SelectionRow2/Level9Button" to="." method="StartLevel_9"]
+[connection signal="pressed" from="Rows/SelectionRow2/Level10Button" to="." method="StartLevel_10"]

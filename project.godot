@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ElementalMadness"
-run/main_scene="res://Src/StartMenu/StartMenu.tscn"
+run/main_scene="res://Src/Menus/StartMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

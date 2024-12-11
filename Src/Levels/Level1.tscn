@@ -111,8 +111,3 @@ libraries = {
 "": SubResource("AnimationLibrary_exnfy")
 }
 autoplay = "Chumra"
-
-[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@155198" to="TileMapLayer/@Area2D@155198" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@155199" to="TileMapLayer/@Area2D@155199" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@157661" to="TileMapLayer/@Area2D@157661" method="OnBodyEntered"]
