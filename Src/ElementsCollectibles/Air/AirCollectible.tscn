@@ -1,31 +1,31 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmshos7msfcwo"]
 
-[ext_resource type="Texture2D" uid="uid://c0ngpvlknral0" path="res://Assets/Gotowe/ogien.png" id="1_3btoy"]
 [ext_resource type="Script" path="res://Src/ElementsCollectibles/Air/AirCollectible.cs" id="1_ncrem"]
+[ext_resource type="Texture2D" uid="uid://cakhyh14as1hh" path="res://Assets/Gotowe/powietrze.png" id="2_anayx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_436k2"]
 radius = 6.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcb6o"]
-atlas = ExtResource("1_3btoy")
-region = Rect2(0, 0, 18, 23)
+[sub_resource type="AtlasTexture" id="AtlasTexture_egxkd"]
+atlas = ExtResource("2_anayx")
+region = Rect2(0, 0, 26, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mcxe"]
-atlas = ExtResource("1_3btoy")
-region = Rect2(18, 0, 18, 23)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jipqe"]
+atlas = ExtResource("2_anayx")
+region = Rect2(26, 0, 26, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yivk0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jcb6o")
+"texture": SubResource("AtlasTexture_egxkd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8mcxe")
+"texture": SubResource("AtlasTexture_jipqe")
 }],
 "loop": true,
 "name": &"Default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="Area2D" type="Area2D"]
@@ -41,5 +41,6 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yivk0")
 animation = &"Default"
 autoplay = "Default"
+frame_progress = 0.445208
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

@@ -41,6 +41,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u2brf")
 animation = &"Default"
 autoplay = "Default"
-frame_progress = 0.533997
+frame = 1
+frame_progress = 0.547114
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
