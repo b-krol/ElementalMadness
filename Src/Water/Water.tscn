@@ -8,10 +8,11 @@ size = Vector2(16, 15)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="HazardArea" parent="." instance=ExtResource("1_ln5oe")]
+[node name="WaterHazardArea" parent="." instance=ExtResource("1_ln5oe")]
 position = Vector2(0, 11)
+collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterHazardArea"]
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_imw0h")
 

@@ -44,10 +44,11 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
-[node name="HazardArea" parent="." instance=ExtResource("1_6ywe5")]
+[node name="FireHazardArea" parent="." instance=ExtResource("1_6ywe5")]
 position = Vector2(0, 11)
+collision_layer = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireHazardArea"]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_1ausn")
 
@@ -55,4 +56,4 @@ shape = SubResource("RectangleShape2D_1ausn")
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_duqe7")
 autoplay = "default"
-frame_progress = 0.938192
+frame_progress = 0.650355

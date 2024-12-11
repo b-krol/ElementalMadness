@@ -15,8 +15,3 @@ tile_set = ExtResource("3_bpo3i")
 
 [node name="Player" parent="." instance=ExtResource("5_tb3u2")]
 position = Vector2(0, -29)
-
-[connection signal="body_entered" from="TileMapLayer/@Area2D@56182" to="TileMapLayer/@Area2D@56182" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@56183" to="TileMapLayer/@Area2D@56183" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@56184" to="TileMapLayer/@Area2D@56184" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@56185" to="TileMapLayer/@Area2D@56185" method="OnBodyEntered"]

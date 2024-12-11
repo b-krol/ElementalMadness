@@ -74,9 +74,21 @@ public partial class Player : CharacterBody2D
     }
 
     private void OnHazadrDetected(Area2D area){
-        GlobalPosition = startingPosition;
-        velocity = Vector2.Zero;
+        
+        if(area.Name == "HazardArea"){
+            GlobalPosition = startingPosition;
+            velocity = Vector2.Zero;
+        }
+        else if(area.Name == "WaterHazardArea" && CurrentElement != Element.water){
+            GlobalPosition = startingPosition;
+            velocity = Vector2.Zero;
+        }
+        else if(area.Name == "FireHazardArea" && CurrentElement != Element.fire){
+            GlobalPosition = startingPosition;
+            velocity = Vector2.Zero;
+        }
     }
+    
 
     private void UpdateAnimation(float input){
         if(input != 0){
