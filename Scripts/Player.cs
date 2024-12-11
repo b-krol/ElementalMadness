@@ -5,15 +5,16 @@ public partial class Player : CharacterBody2D
 {
     [Export] public PlayerMovementData MovementData;
     [Export] public AnimatedSprite2D AnimatedSprite;
+    [Export] public Element CurrentElement = Element.none;
     private Vector2 velocity;
     private Vector2 startingPosition;
 
     public override void _Ready()
     {
         startingPosition = GlobalPosition;
-        Events.Instance.PlayerCollectedFire += () => GlobalVariables.Instance.CurrentElement = Element.fire;
-        Events.Instance.PlayerCollectedAir += () => GlobalVariables.Instance.CurrentElement = Element.air;
-        Events.Instance.PlayerCollectedWater += () => GlobalVariables.Instance.CurrentElement = Element.water;
+        Events.Instance.PlayerCollectedFire += () => CurrentElement = Element.fire;
+        Events.Instance.PlayerCollectedAir += () => CurrentElement = Element.air;
+        Events.Instance.PlayerCollectedWater += () => CurrentElement = Element.water;
     }
 
     public override void _Process(double delta)
@@ -80,7 +81,7 @@ public partial class Player : CharacterBody2D
     private void UpdateAnimation(float input){
         if(input != 0){
             AnimatedSprite.FlipH = input < 0;
-            switch(GlobalVariables.Instance.CurrentElement){
+            switch(CurrentElement){
                 case Element.air: 
                     AnimatedSprite.Play("AirWizard");
                 break;
@@ -98,7 +99,7 @@ public partial class Player : CharacterBody2D
         }
 
         if(!IsOnFloor()){
-            switch(GlobalVariables.Instance.CurrentElement){
+            switch(CurrentElement){
                 case Element.air: 
                     AnimatedSprite.Play("AirWizardJump");
                 break;
@@ -116,3 +117,9 @@ public partial class Player : CharacterBody2D
     }
 }
 
+public enum Element{
+    none,
+    fire,
+    water,
+    air
+}

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://bgb78asc3xwny"]
+[gd_scene load_steps=5 format=4 uid="uid://bgb78asc3xwny"]
 
-[ext_resource type="Script" path="res://Src/Autoload/GlobalVariables.cs" id="1_wnwc2"]
+[ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_yhcw3"]
+[ext_resource type="PackedScene" uid="uid://c4sus6mm2nm7d" path="res://Src/Levels/Level2.tscn" id="2_i5y2l"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="3_bpo3i"]
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="5_tb3u2"]
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_wnwc2")
+script = ExtResource("1_yhcw3")
+NextLevel = ExtResource("2_i5y2l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD7/wAAAQAAAAAAAAD7/wEAAQAAAAEAAAD7/wIAAQAAAAEAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAEAAAD8/wIAAQAAAAEAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAEAAAD9/wIAAQAAAAEAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAEAAAD+/wIAAQAAAAEAAAD//wAAAQAAAAAAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAABAAAAAQAAAAAAAAABAAEAAQAAAAEAAAABAAIAAQAAAAEAAAACAAAAAQAAAAAAAAACAAEAAQAAAAEAAAACAAIAAQAAAAEAAAADAAAAAQAAAAAAAAADAAEAAQAAAAEAAAADAAIAAQAAAAEAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAEAAAAEAAIAAQAAAAEAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAEAAAAFAAIAAQAAAAEAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAEAAAAGAAIAAQAAAAEAAAD5/wEAAQAAAAEAAAD5/wIAAQAAAAEAAAD6/wEAAQAAAAEAAAD6/wIAAQAAAAEAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAD7////AgAAAAAABAACAP//AgAAAAAAAwAFAP//AgAAAAAAAgAGAP3/AgAAAAAABQA=")
@@ -15,6 +17,6 @@ tile_set = ExtResource("3_bpo3i")
 position = Vector2(0, -29)
 
 [connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27005" to="TileMapLayer/@Area2D@27005" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27006" to="TileMapLayer/@Area2D@27006" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@23612" to="TileMapLayer/@Area2D@23612" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@23613" to="TileMapLayer/@Area2D@23613" method="OnBodyEntered"]
 [connection signal="body_entered" from="TileMapLayer/Heart" to="TileMapLayer/Heart" method="OnBodyEntered"]

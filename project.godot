@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://Src/Autoload/Events.cs"
-GlobalVariables="*res://Src/Autoload/GlobalVariables.cs"
 
 [display]
 
