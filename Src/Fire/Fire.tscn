@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7xhb6sskub3r"]
+
+[ext_resource type="PackedScene" uid="uid://dl8iu0r7tt4dv" path="res://Src/Hazard/HazardArea.tscn" id="1_6ywe5"]
+[ext_resource type="Texture2D" uid="uid://cis7a1bo4moko" path="res://Assets/Gotowe/ZabojczyOgien.png" id="2_h0p11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ausn"]
+size = Vector2(14, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my8j7"]
+atlas = ExtResource("2_h0p11")
+region = Rect2(0, 0, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i46rn"]
+atlas = ExtResource("2_h0p11")
+region = Rect2(16, 0, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdt5d"]
+atlas = ExtResource("2_h0p11")
+region = Rect2(32, 0, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kg4t"]
+atlas = ExtResource("2_h0p11")
+region = Rect2(48, 0, 16, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duqe7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my8j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i46rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdt5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kg4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HazardArea" parent="." instance=ExtResource("1_6ywe5")]
+position = Vector2(0, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_1ausn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_duqe7")
+autoplay = "default"
+frame_progress = 0.938192

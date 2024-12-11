@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://t53vfris778i"]
+
+[ext_resource type="PackedScene" uid="uid://dl8iu0r7tt4dv" path="res://Src/Hazard/HazardArea.tscn" id="1_ln5oe"]
+[ext_resource type="Texture2D" uid="uid://cqq33lbbkii4b" path="res://Assets/Gotowe/ZabojczaWoda.png" id="2_50o6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imw0h"]
+size = Vector2(16, 15)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HazardArea" parent="." instance=ExtResource("1_ln5oe")]
+position = Vector2(0, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_imw0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_50o6g")
