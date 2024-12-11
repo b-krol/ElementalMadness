@@ -1,8 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0gg6hbeo6dc2"]
+[gd_scene load_steps=23 format=3 uid="uid://d0gg6hbeo6dc2"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_nlegw"]
-[ext_resource type="Texture2D" uid="uid://df5aret4q1kv7" path="res://Assets/player.png" id="1_nnuta"]
 [ext_resource type="Script" path="res://Scripts/PlayerMovementData.cs" id="2_0dnnc"]
+[ext_resource type="Texture2D" uid="uid://ccfg743hlquuu" path="res://Assets/Gotowe/czarodziej3_animowany.png" id="3_nvlf5"]
+[ext_resource type="Texture2D" uid="uid://dvtqvur45hm22" path="res://Assets/Gotowe/czarodziej2_animowany.png" id="4_aba3b"]
+[ext_resource type="Texture2D" uid="uid://wu4mwtnuwosb" path="res://Assets/Gotowe/czarodziejWiatr2.png" id="4_fxhd8"]
+[ext_resource type="Texture2D" uid="uid://dsruxb1mv3du0" path="res://Assets/Gotowe/czarodziej1_animowany.png" id="5_00rip"]
+[ext_resource type="Texture2D" uid="uid://iqws3togb4sq" path="res://Assets/Gotowe/czarodziej4_animowany4.png" id="6_piyhw"]
+[ext_resource type="Texture2D" uid="uid://ccb0j5uh8h5ae" path="res://Assets/Gotowe/czarodziejOgien2.png" id="6_yi71i"]
+[ext_resource type="Texture2D" uid="uid://bkmv1r6qjsmsd" path="res://Assets/Gotowe/czarodziej2.png" id="8_p0047"]
+[ext_resource type="Texture2D" uid="uid://bucklt7ky33xc" path="res://Assets/Gotowe/czarodziejWoda2.png" id="10_p52b6"]
 
 [sub_resource type="Resource" id="Resource_nv1l1"]
 script = ExtResource("2_0dnnc")
@@ -15,83 +22,120 @@ AirSpeed = 80.0
 AirAcceleration = 3.0
 AirFriction = 3.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5tm57"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(0, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeiij"]
+atlas = ExtResource("3_nvlf5")
+region = Rect2(0, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtdsn"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(144, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uvtf"]
+atlas = ExtResource("3_nvlf5")
+region = Rect2(20, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qkw3"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(0, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_i881f"]
+atlas = ExtResource("4_aba3b")
+region = Rect2(0, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jn3ql"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(24, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_be0vl"]
+atlas = ExtResource("4_aba3b")
+region = Rect2(20, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8qkb"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(48, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp4rq"]
+atlas = ExtResource("5_00rip")
+region = Rect2(0, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_awyot"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(72, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u668"]
+atlas = ExtResource("5_00rip")
+region = Rect2(20, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_najg4"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(96, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjxhw"]
+atlas = ExtResource("6_piyhw")
+region = Rect2(0, 0, 20, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w37mk"]
-atlas = ExtResource("1_nnuta")
-region = Rect2(120, 0, 24, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vlus"]
+atlas = ExtResource("6_piyhw")
+region = Rect2(20, 0, 20, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3df4f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5tm57")
+"texture": SubResource("AtlasTexture_eeiij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uvtf")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"AirWizard",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fxhd8")
+}],
+"loop": true,
+"name": &"AirWizardJump",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qtdsn")
+"texture": SubResource("AtlasTexture_i881f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be0vl")
 }],
 "loop": true,
-"name": &"Jump",
+"name": &"FireWizard",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yi71i")
+}],
+"loop": true,
+"name": &"FireWizardJump",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8qkw3")
+"texture": SubResource("AtlasTexture_hp4rq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jn3ql")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8qkb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_awyot")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_najg4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w37mk")
+"texture": SubResource("AtlasTexture_1u668")
 }],
 "loop": true,
-"name": &"Run",
-"speed": 15.0
+"name": &"NormalWizard",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_p0047")
+}],
+"loop": true,
+"name": &"NormalWizardJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjxhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vlus")
+}],
+"loop": true,
+"name": &"WaterWizard",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_p52b6")
+}],
+"loop": true,
+"name": &"WaterWizardJump",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80oiv"]
 radius = 5.0
-height = 16.0
+height = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rngi0"]
 size = Vector2(8, 14)
@@ -104,13 +148,13 @@ MovementData = SubResource("Resource_nv1l1")
 AnimatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_3df4f")
-animation = &"Run"
-autoplay = "Idle"
+animation = &"AirWizardJump"
+autoplay = "NormalWizard"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_80oiv")
 
 [node name="Camera2D" type="Camera2D" parent="."]

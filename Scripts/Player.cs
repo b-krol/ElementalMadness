@@ -5,12 +5,16 @@ public partial class Player : CharacterBody2D
 {
     [Export] public PlayerMovementData MovementData;
     [Export] public AnimatedSprite2D AnimatedSprite;
+    [Export] public Element CurrentElement = Element.none;
     private Vector2 velocity;
     private Vector2 startingPosition;
 
     public override void _Ready()
     {
         startingPosition = GlobalPosition;
+        Events.Instance.PlayerCollectedFire += () => CurrentElement = Element.fire;
+        Events.Instance.PlayerCollectedAir += () => CurrentElement = Element.air;
+        Events.Instance.PlayerCollectedWater += () => CurrentElement = Element.water;
     }
 
     public override void _Process(double delta)
@@ -77,14 +81,45 @@ public partial class Player : CharacterBody2D
     private void UpdateAnimation(float input){
         if(input != 0){
             AnimatedSprite.FlipH = input < 0;
-            AnimatedSprite.Play("Run");
-        }
-        else{
-            AnimatedSprite.Play("Idle");
+            switch(CurrentElement){
+                case Element.air: 
+                    AnimatedSprite.Play("AirWizard");
+                break;
+                case Element.fire: 
+                    AnimatedSprite.Play("FireWizard");
+                break;
+                case Element.water: 
+                    AnimatedSprite.Play("WaterWizard");
+                break;
+                default: 
+                    AnimatedSprite.Play("NormalWizard");
+                break;
+            }
+            
         }
 
         if(!IsOnFloor()){
-            AnimatedSprite.Play("Jump");
+            switch(CurrentElement){
+                case Element.air: 
+                    AnimatedSprite.Play("AirWizardJump");
+                break;
+                case Element.fire: 
+                    AnimatedSprite.Play("FireWizardJump");
+                break;
+                case Element.water: 
+                    AnimatedSprite.Play("WaterWizardJump");
+                break;
+                default: 
+                    AnimatedSprite.Play("NormalWizardJump");
+                break;
+            }
         }
     }
+}
+
+public enum Element{
+    none,
+    fire,
+    water,
+    air
 }

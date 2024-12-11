@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ocd1sxbc7bii"]
+
+[sub_resource type="GDScript" id="GDScript_gk125"]
+script/source = "using Godot;
+using System;
+
+public partial class FireCollectible : Area2D
+{
+	private void OnBodyEntered(Node2D body){
+		QueueFree();
+		Events.Instance.EmitSignal(Events.SignalName.LevelCompleted);
+	}
+}
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nykq"]
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_gk125")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0nykq")
