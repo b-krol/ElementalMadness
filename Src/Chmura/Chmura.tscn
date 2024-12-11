@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bje3jd4bkdsdy"]
+
+[ext_resource type="Texture2D" uid="uid://cciwbtedrqum3" path="res://Assets/Gotowe/Chmura.png" id="1_krpre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jg3e"]
+size = Vector2(16, 8)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_layer = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_krpre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_6jg3e")
+one_way_collision = true
