@@ -7,7 +7,7 @@ public partial class StartMenu : CenterContainer
 
     public override void _Ready()
     {
-        RenderingServer.SetDefaultClearColor(Colors.Black);
+        RenderingServer.SetDefaultClearColor(Colors.Blue);
     }
 
     private void OnStartButtonPressed(){

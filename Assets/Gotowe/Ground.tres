@@ -1,11 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://ccclnxvau4nel"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://ccclnxvau4nel"]
 
 [ext_resource type="Texture2D" uid="uid://dim5qxgna6e4i" path="res://Assets/Gotowe/BlokZtrawa_tileset.png" id="1_6pj0p"]
 [ext_resource type="PackedScene" uid="uid://bmshos7msfcwo" path="res://Src/ElementsCollectibles/Air/AirCollectible.tscn" id="2_14thc"]
 [ext_resource type="PackedScene" uid="uid://ocd1sxbc7bii" path="res://Src/ElementsCollectibles/Fire/FireCollectible.tscn" id="2_anm72"]
 [ext_resource type="PackedScene" uid="uid://oe7stlvtnfgv" path="res://Src/ElementsCollectibles/Water/WaterCollectible.tscn" id="3_fshyw"]
 [ext_resource type="PackedScene" uid="uid://xyo4rmr73is2" path="res://Src/Heart/Heart.tscn" id="5_e5hq3"]
-[ext_resource type="PackedScene" uid="uid://b7fgbynvth0c6" path="res://Src/WoodenCrate/WoodenCrate.tscn" id="6_3jxe4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jt8np"]
 texture = ExtResource("1_6pj0p")
@@ -23,7 +22,6 @@ scenes/2/scene = ExtResource("2_14thc")
 scenes/3/scene = ExtResource("3_fshyw")
 scenes/4/scene = ExtResource("2_anm72")
 scenes/5/scene = ExtResource("5_e5hq3")
-scenes/6/scene = ExtResource("6_3jxe4")
 
 [resource]
 physics_layer_0/collision_layer = 1
