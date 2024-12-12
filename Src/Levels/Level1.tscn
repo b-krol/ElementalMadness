@@ -1,11 +1,26 @@
-[gd_scene load_steps=13 format=4 uid="uid://bgb78asc3xwny"]
+[gd_scene load_steps=13 format=4 uid="uid://cv6lhyym8ci3d"]
 
 [ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_yhcw3"]
-[ext_resource type="PackedScene" uid="uid://c4sus6mm2nm7d" path="res://Src/Levels/Level2.tscn" id="2_i5y2l"]
+[ext_resource type="PackedScene" uid="uid://n65ibmngxfqw" path="res://Src/Levels/Level2.tscn" id="2_i5y2l"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="3_bpo3i"]
 [ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="5_adrdt"]
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="5_tb3u2"]
-[ext_resource type="PackedScene" uid="uid://bje3jd4bkdsdy" path="res://Src/Chmura/Chmura.tscn" id="6_vao6i"]
+
+[sub_resource type="Animation" id="Animation_olhlb"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(66, 14)]
+}
 
 [sub_resource type="Animation" id="Animation_pgd43"]
 resource_name = "move"
@@ -21,10 +36,20 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(66, 14), Vector2(66, -63)]
+"values": [Vector2(80, -88), Vector2(80, -136)]
 }
 
-[sub_resource type="Animation" id="Animation_olhlb"]
+[sub_resource type="Animation" id="Animation_oowcq"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpyre"]
+_data = {
+"RESET": SubResource("Animation_olhlb"),
+"move": SubResource("Animation_pgd43"),
+"new_animation": SubResource("Animation_oowcq")
+}
+
+[sub_resource type="Animation" id="Animation_38wwm"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -36,18 +61,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(66, 14)]
+"values": [Vector2(144, -24)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpyre"]
-_data = {
-"RESET": SubResource("Animation_olhlb"),
-"move": SubResource("Animation_pgd43")
-}
-
-[sub_resource type="Animation" id="Animation_41pdj"]
-resource_name = "Chumra"
-length = 4.0
+[sub_resource type="Animation" id="Animation_d2ur4"]
+resource_name = "move2"
+length = 3.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -56,31 +75,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(125, 3), Vector2(189, 3)]
+"values": [Vector2(144, -24), Vector2(144, -72)]
 }
 
-[sub_resource type="Animation" id="Animation_4rnty"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(125, 3)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_exnfy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0bgl"]
 _data = {
-"Chumra": SubResource("Animation_41pdj"),
-"RESET": SubResource("Animation_4rnty")
+"RESET": SubResource("Animation_38wwm"),
+"move2": SubResource("Animation_d2ur4")
 }
 
 [node name="Level1" type="Node2D"]
@@ -88,11 +92,11 @@ script = ExtResource("1_yhcw3")
 NextLevel = ExtResource("2_i5y2l")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD7/wAAAQAAAAAAAAD7/wEAAQAAAAEAAAD7/wIAAQAAAAEAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAEAAAD8/wIAAQAAAAEAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAEAAAD9/wIAAQAAAAEAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAEAAAD+/wIAAQAAAAEAAAD//wAAAQAAAAAAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAABAAAAAQAAAAAAAAABAAEAAQAAAAEAAAABAAIAAQAAAAEAAAACAAAAAQAAAAAAAAACAAEAAQAAAAEAAAACAAIAAQAAAAEAAAADAAAAAQAAAAAAAAADAAEAAQAAAAEAAAADAAIAAQAAAAEAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAEAAAAEAAIAAQAAAAEAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAEAAAAFAAIAAQAAAAEAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAEAAAAGAAIAAQAAAAEAAAD5/wEAAQAAAAEAAAD5/wIAAQAAAAEAAAD6/wEAAQAAAAEAAAD6/wIAAQAAAAEAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAD7////AgAAAAAABAACAP//AgAAAAAAAwAFAP//AgAAAAAAAgD9////AgAAAAAAAQD+////AgAAAAAAAQD4/wIAAgAAAAAABgD4/wEAAgAAAAAABgD4/wAAAgAAAAAABgD3/wAAAgAAAAAABgD3/wEAAgAAAAAABgD2/wEAAgAAAAAABgD2/wIAAgAAAAAABgD3/wIAAgAAAAAABgD2/wAAAgAAAAAABgD2//3/AgAAAAAABQA=")
+tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAJAP//AQAAAAAAAAAIAP//AQAAAAAAAAAKAPv/AwAAAAAAAAALAPv/AwAAAAAAAAAMAPv/AwAAAAAAAAAPAPr/AwAAAAAAAAASAPn/AwAAAAAAAAAVAPj/AwAAAAAAAAAWAPj/AwAAAAAAAAD/////AQAAAAAAAAAJAAAAAQAAAAEAAAAJAAEAAQAAAAEAAAAIAAEAAQAAAAEAAAAIAAAAAQAAAAEAAAAHAAEAAQAAAAEAAAAHAAAAAQAAAAEAAAAGAAAAAQAAAAEAAAAFAAAAAQAAAAEAAAAEAAAAAQAAAAEAAAADAAAAAQAAAAEAAAACAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAAAAAEAAQAAAAEAAAABAAEAAQAAAAEAAAACAAEAAQAAAAEAAAADAAEAAQAAAAEAAAAEAAEAAQAAAAEAAAAFAAEAAQAAAAEAAAAGAAEAAQAAAAEAAAADAP7/AgAAAAAAAgADAPf/AwAAAAAAAAACAPf/AwAAAAAAAAABAPf/AwAAAAAAAAAHAPv/AwAAAAAAAAAGAPv/AwAAAAAAAAAFAPv/AwAAAAAAAAAEAPv/AwAAAAAAAAACAPX/AgAAAAAABQAWAPb/AgAAAAAABQAXAPj/AwAAAAAAAAA=")
 tile_set = ExtResource("3_bpo3i")
 
 [node name="Player" parent="." instance=ExtResource("5_tb3u2")]
-position = Vector2(0, -29)
+position = Vector2(8, -16)
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("5_adrdt")]
 position = Vector2(66, 14)
@@ -103,11 +107,11 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="AnimatableBody2D2" parent="." instance=ExtResource("6_vao6i")]
-position = Vector2(125, 3)
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("5_adrdt")]
+position = Vector2(144, -24)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2"]
 libraries = {
-"": SubResource("AnimationLibrary_exnfy")
+"": SubResource("AnimationLibrary_x0bgl")
 }
-autoplay = "Chumra"
+autoplay = "move2"

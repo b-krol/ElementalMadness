@@ -11,20 +11,25 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
+        CurrentElement = Element.none;
+        CollisionMask = 1;
         startingPosition = GlobalPosition;
         Events.Instance.PlayerCollectedFire += () => 
         {
+            GD.Print("Gracz zebrał ogień");
             CurrentElement = Element.fire;
             CollisionMask = 1;
         };
         Events.Instance.PlayerCollectedAir += () => 
         {
+            GD.Print("Gracz zebrał powietrze");
             CurrentElement = Element.air;
             CollisionMask = 65;
         };
         Events.Instance.PlayerCollectedWater += () => 
         {
             CurrentElement = Element.water;
+            GD.Print("Gracz zebrał" + CurrentElement);
             CollisionMask = 1;
         };
     }

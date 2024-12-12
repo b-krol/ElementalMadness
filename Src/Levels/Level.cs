@@ -15,8 +15,7 @@ public partial class Level : Node2D
     }
 
     private void GoToNextLevel(){
-        if(NextLevel is null) return;
-
-        GetTree().ChangeSceneToPacked(NextLevel);
+        var x = (PackedScene)ResourceLoader.Load("res://Src/Levels/LevelSelection.tscn");
+        GetTree().ChangeSceneToPacked(x);
     }
 }

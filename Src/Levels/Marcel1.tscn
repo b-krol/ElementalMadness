@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=4 uid="uid://dtavu3t2on48k"]
+
+[ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_ig1dt"]
+[ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_l6ejy"]
+[ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="3_tlvpt"]
+
+[sub_resource type="Animation" id="Animation_wwome"]
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(66, -12), Vector2(66, -69)]
+}
+
+[sub_resource type="Animation" id="Animation_xu1ua"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(66, -12), Vector2(66, -68)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uvwuj"]
+_data = {
+"RESET": SubResource("Animation_wwome"),
+"move": SubResource("Animation_xu1ua")
+}
+
+[sub_resource type="Animation" id="Animation_77pej"]
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(259, -27), Vector2(259, -101)]
+}
+
+[sub_resource type="Animation" id="Animation_o84cl"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(259, -27), Vector2(259, -100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iekaf"]
+_data = {
+"RESET": SubResource("Animation_77pej"),
+"move": SubResource("Animation_o84cl")
+}
+
+[node name="Marcel1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig1dt")]
+position = Vector2(-13, -2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-3, 0)
+tile_map_data = PackedByteArray("AAAJAP7/AgAAAAAAAQAKAP7/AgAAAAAAAQAMAP7/AgAAAAAAAQAGAP7/AgAAAAAABAAIAP7/AgAAAAAABQAGAPr/AgAAAAAABQAMAPf/AgAAAAAABQABAP//AgAAAAAAAgAOAP7/AgAAAAAAAgANAP7/AgAAAAAAAQD7//v/AwAAAAAAAAD7//z/AwAAAAAAAAD7//3/AwAAAAAAAAD7//7/AwAAAAAAAAD7////AwAAAAAAAAD7/wAAAwAAAAAAAAAFAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAADAAAAAwAAAAAAAAACAAAAAwAAAAAAAAABAAAAAwAAAAAAAAAAAAAAAwAAAAAAAAD//wAAAwAAAAAAAAD+/wAAAwAAAAAAAAD9/wAAAwAAAAAAAAD8/wAAAwAAAAAAAAAGAPv/AwAAAAAAAAAFAPv/AwAAAAAAAAAFAPz/AwAAAAAAAAAFAP3/AwAAAAAAAAAFAP7/AwAAAAAAAAAFAP//AwAAAAAAAAAGAP//AwAAAAAAAAAHAP//AwAAAAAAAAAIAP//AwAAAAAAAAAJAP//AwAAAAAAAAAKAP//AwAAAAAAAAALAP//AwAAAAAAAAAMAP//AwAAAAAAAAANAP//AwAAAAAAAAAOAP//AwAAAAAAAAAPAP//AwAAAAAAAAAQAP//AwAAAAAAAAARAP//AwAAAAAAAAARAPb/AwAAAAAAAAARAPf/AwAAAAAAAAARAPj/AwAAAAAAAAARAPn/AwAAAAAAAAARAPr/AwAAAAAAAAARAPv/AwAAAAAAAAARAPz/AwAAAAAAAAARAP3/AwAAAAAAAAARAP7/AwAAAAAAAAAKAPb/AwAAAAAAAAAKAPf/AwAAAAAAAAAKAPj/AwAAAAAAAAAKAPn/AwAAAAAAAAALAPn/AwAAAAAAAAAMAPn/AwAAAAAAAAANAPn/AwAAAAAAAAAOAPn/AwAAAAAAAAALAP3/AgAAAAAABQA=")
+tile_set = ExtResource("2_l6ejy")
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("3_tlvpt")]
+position = Vector2(66, -12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_uvwuj")
+}
+autoplay = "RESET"
+
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("3_tlvpt")]
+position = Vector2(259, -27)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_iekaf")
+}
+autoplay = "RESET"
+
+[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/Heart" to="TileMapLayer/Heart" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@429300" to="TileMapLayer/@Area2D@429300" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@429301" to="TileMapLayer/@Area2D@429301" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@429302" to="TileMapLayer/@Area2D@429302" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@429303" to="TileMapLayer/@Area2D@429303" method="OnBodyEntered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@429305" to="TileMapLayer/@Area2D@429305" method="OnBodyEntered"]

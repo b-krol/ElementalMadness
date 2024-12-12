@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=4 uid="uid://5v317djhrnw2"]
+
+[ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_4055g"]
+[ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_uldr2"]
+[ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="4_xpged"]
+
+[sub_resource type="Animation" id="Animation_s26gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, -13)]
+}
+
+[sub_resource type="Animation" id="Animation_26lym"]
+resource_name = "move3"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(330, -13), Vector2(330, -37)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vray3"]
+_data = {
+"RESET": SubResource("Animation_s26gl"),
+"move3": SubResource("Animation_26lym")
+}
+
+[node name="Marcel2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4055g")]
+position = Vector2(185, 48)
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(136, 49)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAAGAAMAAwAAAAAAAAAHAAMAAwAAAAAAAAAIAAMAAwAAAAAAAAAJAAMAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAAAAwAAAAAAAAAFAP//AwAAAAAAAAAFAP7/AwAAAAAAAAAFAP3/AwAAAAAAAAAFAPz/AwAAAAAAAAAFAPv/AwAAAAAAAAAKAAMAAwAAAAAAAAALAAMAAwAAAAAAAAAMAAMAAwAAAAAAAAANAAMAAwAAAAAAAAAOAAMAAwAAAAAAAAAPAAMAAwAAAAAAAAAQAAMAAwAAAAAAAAARAAMAAwAAAAAAAAASAAMAAwAAAAAAAAATAAMAAwAAAAAAAAAQAAIAAgAAAAAAAQARAAIAAgAAAAAAAQASAAIAAgAAAAAAAQATAAIAAgAAAAAAAQAUAAMAAwAAAAAAAAAVAAMAAwAAAAAAAAAWAAMAAwAAAAAAAAAXAAMAAwAAAAAAAAAYAAMAAwAAAAAAAAAZAAMAAwAAAAAAAAAaAAMAAwAAAAAAAAAaAAIAAwAAAAAAAAAaAAEAAwAAAAAAAAAaAAAAAwAAAAAAAAAaAP//AwAAAAAAAAAaAP7/AwAAAAAAAAAaAP3/AwAAAAAAAAAaAPz/AwAAAAAAAAAaAPv/AwAAAAAAAAAaAPr/AwAAAAAAAAAFAPr/AwAAAAAAAAAFAPn/AwAAAAAAAAAFAPj/AwAAAAAAAAAFAPf/AwAAAAAAAAAFAPb/AwAAAAAAAAAFAPX/AwAAAAAAAAAGAPX/AwAAAAAAAAAHAPX/AwAAAAAAAAAIAPX/AwAAAAAAAAAJAPX/AwAAAAAAAAAKAPX/AwAAAAAAAAALAPX/AwAAAAAAAAAMAPX/AwAAAAAAAAANAPX/AwAAAAAAAAAOAPX/AwAAAAAAAAAPAPX/AwAAAAAAAAAQAPX/AwAAAAAAAAARAPX/AwAAAAAAAAASAPX/AwAAAAAAAAATAPX/AwAAAAAAAAAUAPX/AwAAAAAAAAAVAPX/AwAAAAAAAAAWAPX/AwAAAAAAAAAXAPX/AwAAAAAAAAAYAPX/AwAAAAAAAAAZAPX/AwAAAAAAAAAaAPX/AwAAAAAAAAAaAPb/AwAAAAAAAAAaAPf/AwAAAAAAAAAaAPj/AwAAAAAAAAAaAPn/AwAAAAAAAAAJAP3/AwAAAAAAAAAKAP3/AwAAAAAAAAALAP3/AwAAAAAAAAAMAP3/AwAAAAAAAAANAP3/AwAAAAAAAAAOAP3/AwAAAAAAAAAPAP3/AwAAAAAAAAAYAAAAAwAAAAAAAAAXAAAAAwAAAAAAAAAWAAAAAwAAAAAAAAAVAAAAAwAAAAAAAAAUAAAAAwAAAAAAAAAQAAAAAwAAAAAAAAARAAAAAwAAAAAAAAASAAAAAwAAAAAAAAATAAAAAwAAAAAAAAAXAAIAAgAAAAAABQAYAP//AgAAAAAABQALAPz/AgAAAAAABQAGAPj/AgAAAAAABQANAPz/AgAAAAAABAAQAP3/AwAAAAAAAAARAP3/AwAAAAAAAAASAP3/AwAAAAAAAAAIAP3/AwAAAAAAAAAHAP3/AwAAAAAAAAAGAPz/AwAAAAAAAAAGAP3/AwAAAAAAAAAHAPz/AwAAAAAAAAAGAPv/AwAAAAAAAAAIAPz/AwAAAAAAAAAHAPv/AwAAAAAAAAAGAPr/AwAAAAAAAAAHAAIAAwAAAAAAAAANAAIAAgAAAAAAAgAIAAIAAwAAAAAAAAAPAAAAAwAAAAAAAAAOAAAAAwAAAAAAAAANAAAAAwAAAAAAAAAHAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAKAAAAAwAAAAAAAAALAAAAAwAAAAAAAAAMAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAAAAwAAAAAAAAAGAP//AwAAAAAAAAAGAP7/AwAAAAAAAAAPAAEAAwAAAAAAAAAPAAIAAwAAAAAAAAA=")
+tile_set = ExtResource("2_uldr2")
+
+[node name="marcel2_tornado" parent="." instance=ExtResource("4_xpged")]
+position = Vector2(330, -13)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="marcel2_tornado"]
+libraries = {
+"": SubResource("AnimationLibrary_vray3")
+}
+autoplay = "move3"

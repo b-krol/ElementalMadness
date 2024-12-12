@@ -9,6 +9,7 @@ public partial class Heart : Area2D
         int hearts = GetTree().GetNodeCountInGroup("Hearts");
         if(hearts == 1)
         {
+            GD.Print("Zebrano wszystkie monety");
             Events.Instance.EmitSignal(Events.SignalName.LevelCompleted);
         }
     }

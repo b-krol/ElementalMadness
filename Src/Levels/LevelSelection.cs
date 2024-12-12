@@ -23,38 +23,38 @@ public partial class LevelSelection : CenterContainer
     }
 
     private void StartLevel_2(){
-        StartLevel(Level1);
+        StartLevel(Level2);
     }
 
     private void StartLevel_3(){
-        StartLevel(Level1);
+        StartLevel(Level3);
     }
 
     private void StartLevel_4(){
-        StartLevel(Level1);
+        StartLevel(Level4);
     }
 
     private void StartLevel_5(){
-        StartLevel(Level1);
+        StartLevel(Level5);
     }
 
     private void StartLevel_6(){
-        StartLevel(Level1);
+        StartLevel(Level6);
     }
 
     private void StartLevel_7(){
-        StartLevel(Level1);
+        StartLevel(Level7);
     }
 
     private void StartLevel_8(){
-        StartLevel(Level1);
+        StartLevel(Level8);
     }
 
     private void StartLevel_9(){
-        StartLevel(Level1);
+        StartLevel(Level9);
     }
 
     private void StartLevel_10(){
-        StartLevel(Level1);
+        StartLevel(Level10);
     }
 }

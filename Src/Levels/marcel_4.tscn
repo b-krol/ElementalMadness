@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=4 uid="uid://boelwdm12fgod"]
+
+[ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_pusg2"]
+[ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_mqfr1"]
+[ext_resource type="PackedScene" uid="uid://bje3jd4bkdsdy" path="res://Src/Chmura/Chmura.tscn" id="3_tuhif"]
+
+[sub_resource type="Animation" id="Animation_o30qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, 33)]
+}
+
+[sub_resource type="Animation" id="Animation_f0bt4"]
+resource_name = "moveeee"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 33), Vector2(168, 33)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2i8fa"]
+_data = {
+"RESET": SubResource("Animation_o30qf"),
+"moveeee": SubResource("Animation_f0bt4")
+}
+
+[node name="marcel_4" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_pusg2")]
+position = Vector2(168, 88)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 3)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAYAAwAAAAAAAAABAAYAAwAAAAAAAAACAAYAAwAAAAAAAAADAAYAAwAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAwAAAAAAAAAJAAYAAwAAAAAAAAAKAAYAAwAAAAAAAAALAAYAAwAAAAAAAAAMAAYAAwAAAAAAAAANAAYAAwAAAAAAAAAOAAYAAwAAAAAAAAAPAAYAAwAAAAAAAAAQAAYAAwAAAAAAAAARAAYAAwAAAAAAAAASAAYAAwAAAAAAAAATAAYAAwAAAAAAAAAUAAYAAwAAAAAAAAALAAUAAwAAAAAAAAALAAQAAwAAAAAAAAALAAMAAwAAAAAAAAAMAAUAAgAAAAAABgANAAUAAgAAAAAABgAOAAUAAgAAAAAABgAPAAUAAgAAAAAABgAQAAUAAgAAAAAABgARAAUAAgAAAAAABgASAAUAAgAAAAAABgATAAUAAgAAAAAABgAUAAUAAwAAAAAAAAAUAAQAAwAAAAAAAAAUAAMAAwAAAAAAAAAUAAIAAwAAAAAAAAAUAAEAAwAAAAAAAAAUAAAAAwAAAAAAAAAUAP//AwAAAAAAAAAUAP7/AwAAAAAAAAAUAP3/AwAAAAAAAAAUAPz/AwAAAAAAAAAUAPv/AwAAAAAAAAATAPv/AwAAAAAAAAASAPv/AwAAAAAAAAARAPv/AwAAAAAAAAAQAPv/AwAAAAAAAAAPAPv/AwAAAAAAAAAOAPv/AwAAAAAAAAANAPv/AwAAAAAAAAAMAPv/AwAAAAAAAAALAPv/AwAAAAAAAAAKAPv/AwAAAAAAAAAJAPv/AwAAAAAAAAAIAPv/AwAAAAAAAAAHAPv/AwAAAAAAAAAGAPv/AwAAAAAAAAAFAPv/AwAAAAAAAAAEAPv/AwAAAAAAAAADAPv/AwAAAAAAAAACAPv/AwAAAAAAAAABAPv/AwAAAAAAAAAAAPv/AwAAAAAAAAD///z/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAD//wQAAwAAAAAAAAD//wUAAwAAAAAAAAD//wYAAwAAAAAAAAD///v/AwAAAAAAAAAQAAQAAgAAAAAABQADAAUAAwAAAAAAAAACAAQAAwAAAAAAAAABAAMAAwAAAAAAAAAAAAIAAwAAAAAAAAALAAIAAwAAAAAAAAAGAAUAAgAAAAAABQALAAEAAgAAAAAABQAIAAUAAgAAAAAAAgAMAAIAAwAAAAAAAAANAAIAAwAAAAAAAAAOAAIAAwAAAAAAAAAPAAIAAwAAAAAAAAANAAEAAgAAAAAAAQAMAAEAAgAAAAAAAQAPAAEAAgAAAAAAAwAKAAMAAgAAAAAABQA=")
+tile_set = ExtResource("2_mqfr1")
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("3_tuhif")]
+position = Vector2(25, 33)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_2i8fa")
+}
+autoplay = "moveeee"

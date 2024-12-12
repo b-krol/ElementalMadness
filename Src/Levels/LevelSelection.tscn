@@ -1,14 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcxn4jftgcdpo"]
+[gd_scene load_steps=22 format=3 uid="uid://dm6p77kqq5k6d"]
 
-[ext_resource type="Script" path="res://Src/Menus/LevelSelection.cs" id="1_0xfkn"]
+[ext_resource type="Script" path="res://Src/Levels/LevelSelection.cs" id="1_0xfkn"]
 [ext_resource type="Texture2D" uid="uid://dmr128mrr17ay" path="res://Assets/Gotowe/LevelsButtons/Lvl1.png" id="2_4lesf"]
+[ext_resource type="PackedScene" uid="uid://jrbo5bhwm8bq" path="res://Src/Levels/Level0.tscn" id="2_6o867"]
+[ext_resource type="PackedScene" uid="uid://cv6lhyym8ci3d" path="res://Src/Levels/Level1.tscn" id="2_7ecwb"]
 [ext_resource type="Texture2D" uid="uid://ck3c16uo202bo" path="res://Assets/Gotowe/Napis_levele.png" id="2_rm3pk"]
+[ext_resource type="PackedScene" uid="uid://n65ibmngxfqw" path="res://Src/Levels/Level2.tscn" id="3_mfbn8"]
 [ext_resource type="Texture2D" uid="uid://2xyawpv1h17a" path="res://Assets/Gotowe/LevelsButtons/Lvl2.png" id="4_a8si5"]
+[ext_resource type="PackedScene" uid="uid://bvkcht8qye3go" path="res://Src/Levels/Level3.tscn" id="5_81kup"]
 [ext_resource type="Texture2D" uid="uid://byptbho0sovbj" path="res://Assets/Gotowe/LevelsButtons/Lvl3.png" id="5_nc5j7"]
+[ext_resource type="PackedScene" uid="uid://dtavu3t2on48k" path="res://Src/Levels/Marcel1.tscn" id="6_q67fs"]
 [ext_resource type="Texture2D" uid="uid://ce0gehqw2y2cd" path="res://Assets/Gotowe/LevelsButtons/Lvl4.png" id="6_qjm44"]
 [ext_resource type="Texture2D" uid="uid://c8y3tpr3y8yvp" path="res://Assets/Gotowe/LevelsButtons/Lvl5.png" id="7_ev7tr"]
+[ext_resource type="PackedScene" uid="uid://5v317djhrnw2" path="res://Src/Levels/marcel_2.tscn" id="7_fxxki"]
 [ext_resource type="Texture2D" uid="uid://cyeot6trrddhp" path="res://Assets/Gotowe/LevelsButtons/Lvl6.png" id="8_lhk8l"]
+[ext_resource type="PackedScene" uid="uid://84xjrvfgs8bj" path="res://Src/Levels/marcel_3.tscn" id="8_xbyk3"]
 [ext_resource type="Texture2D" uid="uid://j8c503tgwrh" path="res://Assets/Gotowe/LevelsButtons/Lvl7.png" id="9_3ci21"]
+[ext_resource type="PackedScene" uid="uid://boelwdm12fgod" path="res://Src/Levels/marcel_4.tscn" id="9_e48hi"]
+[ext_resource type="PackedScene" uid="uid://dyr7qk5pkbxfv" path="res://Src/Levels/marcel_5.tscn" id="10_8uy7p"]
 [ext_resource type="Texture2D" uid="uid://djvtju3fsw4yu" path="res://Assets/Gotowe/LevelsButtons/Lvl8.png" id="10_olonm"]
 [ext_resource type="Texture2D" uid="uid://dmtpygbd42g38" path="res://Assets/Gotowe/LevelsButtons/Lvl9.png" id="11_umy6r"]
 [ext_resource type="Texture2D" uid="uid://b1rsmhn1l1qa8" path="res://Assets/Gotowe/LevelsButtons/Lvl10.png" id="12_51j8r"]
@@ -17,6 +26,15 @@
 offset_right = 320.0
 offset_bottom = 180.0
 script = ExtResource("1_0xfkn")
+Level1 = ExtResource("2_6o867")
+Level2 = ExtResource("2_7ecwb")
+Level3 = ExtResource("3_mfbn8")
+Level4 = ExtResource("5_81kup")
+Level5 = ExtResource("6_q67fs")
+Level6 = ExtResource("7_fxxki")
+Level7 = ExtResource("8_xbyk3")
+Level8 = ExtResource("9_e48hi")
+Level9 = ExtResource("10_8uy7p")
 
 [node name="Rows" type="VBoxContainer" parent="."]
 layout_mode = 2

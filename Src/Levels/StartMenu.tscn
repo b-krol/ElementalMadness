@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://gdp4eepewy74"]
+[gd_scene load_steps=7 format=3 uid="uid://c5s43sv0x0kah"]
 
-[ext_resource type="Script" path="res://Src/Menus/StartMenu.cs" id="1_riiih"]
-[ext_resource type="PackedScene" uid="uid://dcxn4jftgcdpo" path="res://Src/Menus/LevelSelection.tscn" id="2_lmg0s"]
+[ext_resource type="Script" path="res://Src/Levels/StartMenu.cs" id="1_riiih"]
+[ext_resource type="PackedScene" uid="uid://dm6p77kqq5k6d" path="res://Src/Levels/LevelSelection.tscn" id="2_lmg0s"]
 [ext_resource type="Texture2D" uid="uid://d3ffkl4ty2vd" path="res://Assets/Gotowe/StartButton.png" id="3_8tsw8"]
 [ext_resource type="Texture2D" uid="uid://cioro5tcli731" path="res://Assets/Gotowe/Title.png" id="3_cvi8u"]
 [ext_resource type="Texture2D" uid="uid://dnujn4fpitste" path="res://Assets/Gotowe/OptionsButton.png" id="4_okyf1"]
