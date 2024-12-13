@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://dtavu3t2on48k"]
+[gd_scene load_steps=11 format=4 uid="uid://dtavu3t2on48k"]
 
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_ig1dt"]
+[ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_upnhv"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_l6ejy"]
 [ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="3_tlvpt"]
 
@@ -83,6 +84,7 @@ _data = {
 }
 
 [node name="Marcel1" type="Node2D"]
+script = ExtResource("1_upnhv")
 
 [node name="Player" parent="." instance=ExtResource("1_ig1dt")]
 position = Vector2(-13, -2)
@@ -111,11 +113,3 @@ libraries = {
 "": SubResource("AnimationLibrary_iekaf")
 }
 autoplay = "RESET"
-
-[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/Heart" to="TileMapLayer/Heart" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@429300" to="TileMapLayer/@Area2D@429300" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@429301" to="TileMapLayer/@Area2D@429301" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@429302" to="TileMapLayer/@Area2D@429302" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@429303" to="TileMapLayer/@Area2D@429303" method="OnBodyEntered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@429305" to="TileMapLayer/@Area2D@429305" method="OnBodyEntered"]

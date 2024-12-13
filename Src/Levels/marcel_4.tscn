@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://boelwdm12fgod"]
+[gd_scene load_steps=8 format=4 uid="uid://boelwdm12fgod"]
 
+[ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_a7ql2"]
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_pusg2"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_mqfr1"]
 [ext_resource type="PackedScene" uid="uid://bje3jd4bkdsdy" path="res://Src/Chmura/Chmura.tscn" id="3_tuhif"]
@@ -43,6 +44,7 @@ _data = {
 }
 
 [node name="marcel_4" type="Node2D"]
+script = ExtResource("1_a7ql2")
 
 [node name="Player" parent="." instance=ExtResource("1_pusg2")]
 position = Vector2(168, 88)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://5v317djhrnw2"]
+[gd_scene load_steps=8 format=4 uid="uid://5v317djhrnw2"]
 
 [ext_resource type="PackedScene" uid="uid://d0gg6hbeo6dc2" path="res://Src/Player/player.tscn" id="1_4055g"]
+[ext_resource type="Script" path="res://Src/Levels/Level.cs" id="1_a0juf"]
 [ext_resource type="TileSet" uid="uid://ccclnxvau4nel" path="res://Assets/Gotowe/Ground.tres" id="2_uldr2"]
 [ext_resource type="PackedScene" uid="uid://bc2vxejshwce8" path="res://Src/Tornado/Tornado.tscn" id="4_xpged"]
 
@@ -43,6 +44,7 @@ _data = {
 }
 
 [node name="Marcel2" type="Node2D"]
+script = ExtResource("1_a0juf")
 
 [node name="Player" parent="." instance=ExtResource("1_4055g")]
 position = Vector2(185, 48)
